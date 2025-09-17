@@ -1,7 +1,7 @@
 class Owner():
 
 
-    def __init__(self,id=202010001,name="Sarah Mahmoud Salah"):
+    def __init__(self,id=202010001,name="owner"):
         # Iniliazing the instances attributes using both default constructor
         # and parameterized constructor
         self.id=id

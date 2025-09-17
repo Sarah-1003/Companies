@@ -1,6 +1,8 @@
-class Department():
+from company import Company
+class Department(Company):
 
-    def __init__(self,dname="IT",empCount=10):
+    def __init__(self,title="ZUJ",dname="IT",empCount=10):
+        super().__init__(title)
         self.dname=dname
         self.empCount=empCount
         self._DeptBudget=0
@@ -10,6 +12,7 @@ class Department():
     def __str__(self):
         return(
         f"===========Department Information===========\n"
+        f"Company:{self.title}\n"
         f"The Department name: {self._dname}\n"
         f"Employees Count: {self._empCount}\n"
         f"Department budget: {self.getDeptBudget(self._dname)}\n"
@@ -61,18 +64,7 @@ class Department():
     def getTotalBudget(self):
 
         self._total_budget= (self._DeptBudget)+(self._EmpBudget)+1500
-        print((self._DeptBudget),(self._EmpBudget))
         return self._total_budget
 
-try:        
-    d=Department(dname="HR",empCount=40)
-except ValueError or TypeError as e:
-
-    print(f"Error! {e}")
-
-d1=Department(dname="HR",empCount=40)
-print(d1)
 
 
-d2=Department(dname="Sales",empCount=60)
-print(d2)
