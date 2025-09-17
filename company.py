@@ -1,28 +1,30 @@
-class Owner():
+from owner import Owner
+class Company():
 
-
-    def __init__(self,id=201902069,name="Sarah Mahmoud Salah"):
-        # Iniliazing the instances attributes using both default constructor
-        # and parameterized constructor
-        self.id=id
-        self.name=name
+    def __init__(self,title="ZUJ"):
+        self.title=title
+        self.owners=[]
     def __str__(self):
-        return f"The owner name is {self.name} with id {self.id}"
-    @property
-    def id(self):
-        return self._id
-    @id.setter
-    def id(self,id):
-        self._id=id
+        return (
+            f"=========Company Information==============\n"
+            f"Company title: {self.title}\n"
+            f"Owners: {[(owner.name, owner.id) for owner in self.owners]}\n"
+            f"==========================================\n"
+)
+    def addOwner(self,id,name):
+        self.owner=Owner(id,name)
+        self.owners.append(self.owner)
+    def getOwners(self):
+        for owner in self.owners:
+            print(f"Owner name's {owner.name} with id {owner.id}")
 
 
-owner1=Owner()
-print(owner1)
-print(owner1.id)
 
-owner=Owner(id=201802365, name='Kangjunii')
 
-print(owner)
-print(owner.id)
-owner.name="kang-jun"
-print(owner)
+company_object=Company(title="Sarah & Kang")
+company_object.addOwner(name="Lee Kang",id=202010001)
+company_object.addOwner(name="Sarah Lee",id=202010002)
+
+company_object.getOwners()
+
+print(company_object)
